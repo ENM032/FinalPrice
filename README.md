@@ -1,6 +1,16 @@
-# FinalPrice 🧾
+# FinalPrice
 
 A high-performance, mobile-first web app that deconstructs the actual total cost of purchases across auction houses, marketplaces, and service platforms with zero hidden surprises.
+
+## Demonstration & Preview
+
+### Desktop View: Aucor Vehicle Auction Calculation
+![Aucor Auction Calculator Desktop View](docs/screenshots/aucor-desktop.png)
+
+### Mobile View: Yaga Marketplace Checkout
+<p align="center">
+  <img src="docs/screenshots/yaga-mobile.png" alt="Yaga Marketplace Mobile View" width="380" />
+</p>
 
 ## Supported Platforms & Calculators
 
@@ -27,7 +37,7 @@ A high-performance, mobile-first web app that deconstructs the actual total cost
 
 ### Installation
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/ENM032/FinalPrice.git
 cd FinalPrice
 npm install
 ```
@@ -50,7 +60,7 @@ npm run build
 ## Deployment
 
 ### Deploy to Vercel
-Push your repository to GitHub/GitLab, import it into Vercel, and click **Deploy**. The included `vercel.json` automatically configures SPA rewrites and security headers.
+Push your repository to GitHub, import it into Vercel, and click **Deploy**. The included `vercel.json` automatically configures SPA rewrites and security headers.
 
 ### Deploy to Netlify
 Import your repository into Netlify. The included `netlify.toml` automatically configures build settings, SPA redirects, and security headers.
