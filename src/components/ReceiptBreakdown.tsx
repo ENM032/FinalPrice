@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, Share2, AlertCircle } from 'lucide-react';
+import { Copy, Check, Share2, AlertCircle, Landmark } from 'lucide-react';
 import { formatCurrency, formatPercentage } from '../utils/currency';
 import { formatBreakdownText, generateShareUrl, copyTextToClipboard } from '../utils/share';
 import type { CalculationResult, LineItemBreakdown, PlatformConfig } from '../types/platform';
@@ -7,9 +7,14 @@ import type { CalculationResult, LineItemBreakdown, PlatformConfig } from '../ty
 interface ReceiptBreakdownProps {
   platform: PlatformConfig;
   result: CalculationResult;
+  onFinanceAmount?: (amount: number) => void;
 }
 
-export const ReceiptBreakdown: React.FC<ReceiptBreakdownProps> = ({ platform, result }) => {
+export const ReceiptBreakdown: React.FC<ReceiptBreakdownProps> = ({
+  platform,
+  result,
+  onFinanceAmount,
+}) => {
   const [copiedBreakdown, setCopiedBreakdown] = useState(false);
   const [copiedShareUrl, setCopiedShareUrl] = useState(false);
 
@@ -78,6 +83,16 @@ export const ReceiptBreakdown: React.FC<ReceiptBreakdownProps> = ({ platform, re
 
       {/* Action Buttons & Disclaimer */}
       <div className="space-y-4 pt-4 border-t border-slate-800">
+        {onFinanceAmount && result.totalFinalPrice > 0 && (
+          <button
+            onClick={() => onFinanceAmount(result.totalFinalPrice)}
+            className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 border border-teal-500/30 text-xs sm:text-sm font-bold transition-all cursor-pointer shadow-sm hover:shadow-teal-500/10"
+          >
+            <Landmark className="w-4 h-4" />
+            <span>Finance this Total ({formatCurrency(result.totalFinalPrice, platform.currencySymbol)})</span>
+          </button>
+        )}
+
         <div className="grid grid-cols-2 gap-3">
           <button
             onClick={handleCopyBreakdown}

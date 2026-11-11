@@ -8,13 +8,19 @@ export function generateShareUrl(platformId: string, baseAmount: number): string
   return currentUrl.toString();
 }
 
-export function parseSharedUrlParams(): { platformId?: string; amount?: number } {
+export function parseSharedUrlParams(): {
+  platformId?: string;
+  amount?: number;
+  mode?: 'platform_fees' | 'finance';
+} {
   try {
     const params = new URLSearchParams(window.location.search);
     const platformId = params.get('platform') || undefined;
     const amountStr = params.get('amount');
     const amount = amountStr ? parseFloat(amountStr) : undefined;
-    return { platformId, amount: amount && !Number.isNaN(amount) ? amount : undefined };
+    const modeParam = params.get('mode');
+    const mode = modeParam === 'finance' ? 'finance' : 'platform_fees';
+    return { platformId, amount: amount && !Number.isNaN(amount) ? amount : undefined, mode };
   } catch {
     return {};
   }

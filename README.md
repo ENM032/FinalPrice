@@ -1,25 +1,36 @@
 # FinalPrice
 
-A high-performance, mobile-first web app that deconstructs the actual total cost of purchases across auction houses, marketplaces, and service platforms with zero hidden surprises.
+A high-performance, mobile-first web app that deconstructs the actual total cost of purchases across auction houses, marketplaces, and service platforms with zero hidden surprises, alongside an integrated finance calculator for vehicles, homes, and assets.
 
 ## Demonstration & Preview
 
-### Desktop View: Aucor Vehicle Auction Calculation
+### Desktop View: Platform Fee Calculator (Aucor Vehicle Auction)
 ![Aucor Auction Calculator Desktop View](docs/screenshots/aucor-desktop.png)
+
+### Desktop View: Finance Calculator (Vehicle, Home Loan & Asset Installments)
+![Finance Calculator Desktop View](docs/screenshots/finance-desktop.png)
 
 ### Mobile View: Yaga Marketplace Checkout
 <p align="center">
   <img src="docs/screenshots/yaga-mobile.png" alt="Yaga Marketplace Mobile View" width="380" />
 </p>
 
-## Supported Platforms & Calculators
+## Supported Capabilities
 
+### 1. Platform Fee & Purchase Breakdown
 - **Aucor Vehicle Auctions**: Calculates `(Bid Amount + 6% Buyer's Premium + R2,600 Documentation Fee) + 15% VAT`. Includes quick bid increments (+R1k, +R5k, +R10k, +R25k).
 - **Yaga Marketplace**: Calculates `6.5% Buyer Protection Fee + R19.90 Base Fee + Courier/Delivery Fee + Item Listing Price`. Includes shipping presets (Pudo, PAXI, Courier Guy, PostNet, Free Collection).
 - **Bob Shop (Bidorbuy)**: Calculates buyer guarantee and shipping options.
 - **Custom Service**: Fully configurable formula pipeline (commission percentage, handling fee, delivery, and tax).
 - **Target Budget Solver (Reverse Calculator)**: Enter your maximum total budget (e.g. R100,000) and FinalPrice solves for the maximum winning bid you can place without exceeding your bank balance.
 - **Editable Fee Schedules**: Values are not hardcoded. Users can edit any fee rate or flat amount with instant persistence in `localStorage` and a 1-click restore to platform defaults.
+
+### 2. Finance Calculator (Homes, Vehicles, Items)
+- **Vehicle Finance**: Preconfigured with standard 36, 48, 60, and 72-month terms, prime lending rate, NCA bank fees, and optional residual / balloon payment percentages (0%, 15%, 25%, 35%).
+- **Home Loan / Bond**: Calculates long-term mortgage amortizations over 10, 15, 20, 25, or 30 years with deposit percentages (0% to 20%) and statutory bank initiation fee caps.
+- **General Items & Asset Finance**: Short and medium-term financing for retail assets, electronics, and equipment.
+- **Annual Amortization Schedule**: Full yearly principal vs interest repayment breakdown table.
+- **Seamless Flow**: Direct "Finance this Total" action in the fee receipt sends the calculated final price directly into the finance calculator.
 
 ## Tech Stack & Architecture
 
